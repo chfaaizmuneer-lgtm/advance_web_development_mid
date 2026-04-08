@@ -1,3 +1,10 @@
+<img width="1918" height="942" alt="image" src="https://github.com/user-attachments/assets/61d2e708-8b64-4535-8850-e3052a1fe298" />
+<img width="1913" height="945" alt="image" src="https://github.com/user-attachments/assets/08cfc249-02f1-4927-ad5c-e16f57d6cc94" />
+<img width="1914" height="948" alt="image" src="https://github.com/user-attachments/assets/80fb95e5-d8f0-420b-8d29-fc606a6d2984" />
+
+
+
+
 # 📦 InvenTrack — Product/Inventory Management System
 
 > **Course:** CSC337 Advanced Web Technologies — Mid Lab Exam (Spring 2026)  
