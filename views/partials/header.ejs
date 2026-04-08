@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= title %> | InvenTrack</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <a class="nav-link" href="/products">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --warning: #d97706;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --sidebar-bg: #0f172a;
+      --sidebar-text: #94a3b8;
+      --sidebar-active: #2563eb;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Navbar ─────────────────────────────── */
+    .navbar-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: -0.5px;
+    }
+    .navbar-brand span { color: #60a5fa; }
+    .navbar { box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+
+    /* ── Cards ──────────────────────────────── */
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+      transition: box-shadow .2s;
+    }
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+
+    /* ── Stat Cards ─────────────────────────── */
+    .stat-card {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: white;
+    }
+    .stat-card .icon { font-size: 2rem; opacity: .85; }
+    .stat-card .value { font-size: 1.8rem; font-weight: 700; line-height: 1; }
+    .stat-card .label { font-size: .8rem; opacity: .85; margin-top: 2px; }
+
+    /* ── Badges ─────────────────────────────── */
+    .badge-in { background: #dcfce7; color: #15803d; }
+    .badge-low { background: #fef9c3; color: #a16207; }
+    .badge-out { background: #fee2e2; color: #b91c1c; }
+
+    /* ── Table ──────────────────────────────── */
+    .table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); font-weight: 600; }
+    .table td { vertical-align: middle; }
+    .table-hover tbody tr:hover { background: #f1f5f9; }
+
+    /* ── Buttons ────────────────────────────── */
+    .btn { border-radius: 8px; font-weight: 500; }
+    .btn-primary { background: var(--primary); border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+
+    /* ── Forms ──────────────────────────────── */
+    .form-control, .form-select {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: .9rem;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+    }
+    .form-label { font-weight: 500; font-size: .88rem; color: var(--text); }
+
+    /* ── Page header ────────────────────────── */
+    .page-header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      margin-bottom: 1.5rem;
+    }
+    .page-header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; }
+
+    /* ── Footer ─────────────────────────────── */
+    footer { background: var(--sidebar-bg); color: var(--sidebar-text); padding: .8rem; text-align: center; font-size: .8rem; margin-top: auto; }
+
+    /* ── Alert ──────────────────────────────── */
+    .alert { border-radius: 10px; }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ──────────────────────────────────────────────────────── -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="/products">
+      <i class="bi bi-box-seam me-2"></i>Inven<span>Track</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/products">
+            <i class="bi bi-speedometer2 me-1"></i>Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/products/new">
+            <i class="bi bi-plus-circle me-1"></i>Add Product
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/api/products" target="_blank">
+            <i class="bi bi-braces me-1"></i>REST API
+          </a>
+        </li>
+      </ul>
+      <span class="navbar-text text-secondary small">
+        <i class="bi bi-person-badge me-1"></i>Faaiz Muneer &mdash; SP23-BSE-005
+      </span>
+    </div>
+  </div>
+</nav>

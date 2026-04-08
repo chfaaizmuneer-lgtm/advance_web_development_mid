@@ -1,0 +1,109 @@
+<%- include('../partials/header') %>
+
+<div class="page-header">
+  <div class="container-fluid px-4 d-flex justify-content-between align-items-center">
+    <h1><i class="bi bi-plus-circle me-2 text-primary"></i>Add New Product</h1>
+    <a href="/products" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left me-1"></i>Back</a>
+  </div>
+</div>
+
+<div class="container-fluid px-4 pb-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <!-- Validation Errors -->
+      <% if (errors && errors.length > 0) { %>
+        <div class="alert alert-danger alert-dismissible fade show">
+          <strong><i class="bi bi-exclamation-triangle me-2"></i>Please fix the following errors:</strong>
+          <ul class="mb-0 mt-2">
+            <% errors.forEach(err => { %>
+              <li><%= err %></li>
+            <% }) %>
+          </ul>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      <% } %>
+
+      <div class="card">
+        <div class="card-header bg-white py-3">
+          <h5 class="mb-0 fw-semibold">Product Information</h5>
+        </div>
+        <div class="card-body p-4">
+          <form action="/products" method="POST" novalidate>
+
+            <div class="row g-3">
+              <!-- Name -->
+              <div class="col-md-8">
+                <label class="form-label">Product Name <span class="text-danger">*</span></label>
+                <input type="text" name="name" class="form-control" placeholder="e.g. Wireless Headphones"
+                  value="<%= formData.name || '' %>" required>
+              </div>
+
+              <!-- SKU -->
+              <div class="col-md-4">
+                <label class="form-label">SKU <span class="text-danger">*</span></label>
+                <input type="text" name="sku" class="form-control" placeholder="e.g. WH-001"
+                  value="<%= formData.sku || '' %>" required style="text-transform:uppercase">
+                <div class="form-text">Unique product code (letters, numbers, hyphens)</div>
+              </div>
+
+              <!-- Category -->
+              <div class="col-md-6">
+                <label class="form-label">Category <span class="text-danger">*</span></label>
+                <select name="category" class="form-select" required>
+                  <option value="" disabled <%= !formData.category ? 'selected' : '' %>>Select category...</option>
+                  <% categories.forEach(cat => { %>
+                    <option value="<%= cat %>" <%= formData.category === cat ? 'selected' : '' %>><%= cat %></option>
+                  <% }) %>
+                </select>
+              </div>
+
+              <!-- Supplier -->
+              <div class="col-md-6">
+                <label class="form-label">Supplier</label>
+                <input type="text" name="supplier" class="form-control" placeholder="e.g. Tech Corp"
+                  value="<%= formData.supplier || '' %>">
+              </div>
+
+              <!-- Price -->
+              <div class="col-md-6">
+                <label class="form-label">Price (USD) <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <input type="number" name="price" class="form-control" placeholder="0.00"
+                    step="0.01" min="0" value="<%= formData.price || '' %>" required>
+                </div>
+              </div>
+
+              <!-- Quantity -->
+              <div class="col-md-6">
+                <label class="form-label">Quantity <span class="text-danger">*</span></label>
+                <input type="number" name="quantity" class="form-control" placeholder="0"
+                  min="0" value="<%= formData.quantity || '' %>" required>
+              </div>
+
+              <!-- Description -->
+              <div class="col-12">
+                <label class="form-label">Description</label>
+                <textarea name="description" class="form-control" rows="3"
+                  placeholder="Optional product description..." maxlength="500"><%= formData.description || '' %></textarea>
+                <div class="form-text">Max 500 characters</div>
+              </div>
+            </div>
+
+            <hr class="my-4"/>
+
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-primary px-4">
+                <i class="bi bi-check-lg me-1"></i>Add Product
+              </button>
+              <a href="/products" class="btn btn-outline-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
